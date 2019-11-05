@@ -6,6 +6,10 @@ server:
     max-threads: 500
     uri-encoding: utf-8
 spring:
+  datasource:    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.10.138:3306/chapter05?characherEncodeing=utf8&&serverTimezone=Asia/Shanghai
+    username: tester
+    password: 84519741
   servlet:    multipart:      enabled: true
       file-size-threshold: 0
       max-file-size: 1MB
@@ -13,7 +17,3 @@ spring:
       resolve-lazily: false  http:    encoding:      force: true
       charset: utf-8
       enabled: true
-config:
-  name: 三国演义
-  author: 罗贯中
-  price: 20

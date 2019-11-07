@@ -1,7 +1,5 @@
 package com.yuansong.study.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.google.gson.Gson;
-import com.yuansong.study.dao.BookDao;
-import com.yuansong.study.pojo.Book;
 import com.yuansong.study.service.UserService;
-import com.yuansong.tools.common.DateTool;
+import com.yuansong.study.service.WorkerService;
 import com.yuansong.tools.common.MathTool;
 
 
@@ -28,7 +23,7 @@ public class HelloController {
 	UserService _userService;
 	
 	@Autowired
-	private BookDao _bookDao;
+	WorkerService _workerService;
 	
 	@GetMapping("/hello")
 	public String hello() {
@@ -38,38 +33,18 @@ public class HelloController {
 		return "Hello Sping Boot";
 	}
 	
+	@GetMapping("/worker")
+	public String worker() {
+		return _workerService.Test();
+//		MathTool mt = new MathTool();	
+//		System.out.println(_userService.GetUserById(mt.RandInt(10, 100)));
+//		_userService.DeleteUserById(mt.RandInt(10, 100));
+//		return "Hello Sping Boot";
+	}
+	
 	@GetMapping("/book")
 	public String book() {	
-		String strReturn = "|";
-		Gson gson = new Gson();
-		MathTool mt = new MathTool();
-		DateTool dt = new DateTool();
-		String bookNum = String.valueOf(mt.RandInt(100, 1000));
-		Book book = _bookDao.getBookById(1);
-		strReturn = strReturn +  gson.toJson(book) + "|";
-		
-		List<Book> list = _bookDao.getAllBooks();
-		int delId = 2;
-		for(Book _book : list) {
-			if(_book.getId() > 2 && _book.getId() > delId) {
-				delId = _book.getId();
-			}
-		}
-		int r = _bookDao.deleteBookById(delId);
-		strReturn = strReturn +  String.valueOf(r) + "|";
-		
-		book.setAuthor("Author" + bookNum);
-		book.setName("Name" + bookNum);
-		r = _bookDao.addBook(book);
-		strReturn = strReturn +  String.valueOf(r) + "|";
-		
-		book.setId(1);
-		book.setName("三国演义");
-		book.setAuthor("罗贯中" + dt.GetDatetimeWithMillionsecond());
-		r = _bookDao.updateBook(book);
-		strReturn = strReturn +  String.valueOf(r) + "|";
-		
-		return strReturn;
+		return _userService.BookDaoTest();
 	}
 	
 	@PostMapping("/upload")

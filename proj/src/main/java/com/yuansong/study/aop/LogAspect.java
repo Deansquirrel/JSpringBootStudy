@@ -3,6 +3,7 @@ package com.yuansong.study.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -34,5 +35,14 @@ public class LogAspect {
 		System.out.println(name+"方法的返回值为"+result);
 	}
 	
+	@AfterThrowing(value="pc1()",throwing="e")
+	public void afterThrowing(JoinPoint jp,Exception e) {
+		String name = jp.getSignature().getName();
+		System.out.println(name+"方法抛异常了，异常是："+e.toString());
+	}
 	
+//	@Around("pc1()")
+//	public Object around(ProceedingJoinPoint pjp) throws Throwable{
+//		return pjp.proceed();
+//	}
 }

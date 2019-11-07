@@ -22,7 +22,7 @@ public class ErrorController {
 	
 	@ExceptionHandler(RuntimeException.class)
 	public void exception(Exception e,HttpServletResponse resp) throws IOException {
-		System.out.println("get error");
+		System.out.println("get error " + e.toString());
 		e.printStackTrace();
 //		Gson gson = new Gson();
 //		return gson.toJson(e);

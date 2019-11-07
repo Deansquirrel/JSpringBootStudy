@@ -11,7 +11,7 @@ import com.yuansong.study.pojo.Book;
 
 @Repository
 public class BookDao {
-	
+
 	private String insertSql = "insert into book(fname,fauthor) values(?,?)";
 	private String updateSql = "UPDATE book SET fname=?,fauthor=? WHERE fid=?";
 	private String deleteSql = "DELETE FROM book WHERE fid = ?";
@@ -39,6 +39,5 @@ public class BookDao {
 	
 	public List<Book> getAllBooks(){
 		return jdbcTemplate.query(getAllSql, new BookRowMapper());
-	}
-	
+	}	
 }

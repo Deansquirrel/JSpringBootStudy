@@ -10,6 +10,8 @@ spring:
     url: jdbc:mysql://192.168.10.138:3306/chapter05?characherEncodeing=utf8&&serverTimezone=Asia/Shanghai
     username: tester
     password: 84519741
+  devtools:    restart:      enabled: true
+      exclude: WEB-IINF/**
   servlet:    multipart:      enabled: true
       file-size-threshold: 0
       max-file-size: 1MB

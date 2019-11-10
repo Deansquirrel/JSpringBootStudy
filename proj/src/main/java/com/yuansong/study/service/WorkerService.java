@@ -96,7 +96,7 @@ public class WorkerService {
 		ds.setMaxActive(30);
 		//获取连接等待超时的时间
 		ds.setMaxWait(10000);
-		//间隔多久才进行一次检测（毫秒）
+		//间隔多久才进行一次检测（毫秒） 
 		ds.setTimeBetweenEvictionRunsMillis(60000);
 		//一个连接在池中最小生存的时间（毫秒）
 		ds.setMinEvictableIdleTimeMillis(300000);

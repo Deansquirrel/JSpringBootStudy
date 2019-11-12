@@ -30,7 +30,7 @@ spring:
       enabled: true
 logging:
   file:    path: ./logs
-config:
+sys-config:
   rootLogLevel: warn
   configStrOne: strOne
   configStrTwo: strTwo

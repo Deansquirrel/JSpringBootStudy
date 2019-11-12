@@ -1,5 +1,5 @@
 {"properties": [{
-  "name": "config",
+  "name": "sys-config",
   "type": "com.yuansong.study.config.SysConfig",
   "description": "A description for 'sysConfig'"
 }]}

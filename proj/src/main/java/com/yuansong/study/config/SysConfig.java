@@ -3,7 +3,7 @@ package com.yuansong.study.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties(prefix = "config")
+@ConfigurationProperties(prefix = "sys-config")
 @Component
 public class SysConfig {
 	

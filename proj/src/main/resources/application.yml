@@ -2,7 +2,18 @@ server:
   port: 8080
   error:    path: /error
   servlet:    session:      timeout: 30m
-  tomcat:    basedir: ./logs
+  tomcat:
+    basedir: ./tomcat
+    accesslog:      buffered: true
+      directory: ./logs
+      enabled: true
+      file-date-format: .yyyy-MM-dd
+      prefix: access_log
+      suffix: .log
+      rename-on-rotate: false
+      pattern: common
+      request-attributes-enabled: false
+      rotate: true
     max-threads: 500
     uri-encoding: utf-8
 spring:
@@ -10,8 +21,6 @@ spring:
     url: jdbc:mysql://192.168.10.138:3306/chapter05?characherEncodeing=utf8&&serverTimezone=Asia/Shanghai
     username: tester
     password: 84519741
-  devtools:    restart:      enabled: true
-      exclude: WEB-IINF/**
   servlet:    multipart:      enabled: true
       file-size-threshold: 0
       max-file-size: 1MB
@@ -19,3 +28,11 @@ spring:
       resolve-lazily: false  http:    encoding:      force: true
       charset: utf-8
       enabled: true
+logging:
+  file:    path: ./logs
+config:
+  rootLogLevel: warn
+  configStrOne: strOne
+  configStrTwo: strTwo
+  configIntOne: 1
+  

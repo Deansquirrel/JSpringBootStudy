@@ -5,6 +5,7 @@ target/
 !**/src/test/**
 
 logs
+tomcat
 
 ### STS ###
 .apt_generated

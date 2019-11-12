@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yuansong.study.config.SysConfig;
 import com.yuansong.study.service.UserService;
 import com.yuansong.study.service.WorkerService;
 import com.yuansong.tools.common.MathTool;
@@ -15,6 +16,9 @@ import com.yuansong.tools.common.MathTool;
 
 @RestController
 public class HelloController {
+	
+	@Autowired
+	private SysConfig sysConfig;
 	
 //	@Autowired
 //	private SimpleConfig _config;
@@ -30,7 +34,20 @@ public class HelloController {
 		MathTool mt = new MathTool();	
 		System.out.println(_userService.GetUserById(mt.RandInt(10, 100)));
 		_userService.DeleteUserById(mt.RandInt(10, 100));
+//		logger.debug("hello log test");
+//		logger.info("hello log test");
+//		logger.warn("hello log test");
+//		logger.info("中文测试");
+		
+		System.out.println(sysConfig.getConfigStrOne());
+		System.out.println(sysConfig.getConfigStrTwo());
+		System.out.println(sysConfig.getRootLogLevel());
 		return "Hello Sping Boot";
+	}
+	
+	@GetMapping("/path")
+	public String path(HttpServletRequest req) {
+		return req.getSession().getServletContext().getRealPath("");
 	}
 	
 	@GetMapping("/worker")

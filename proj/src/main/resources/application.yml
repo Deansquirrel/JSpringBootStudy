@@ -28,8 +28,7 @@ spring:
       resolve-lazily: false  http:    encoding:      force: true
       charset: utf-8
       enabled: true
-logging:
-  file:    path: ./logs
+logging:  config: classpath:log4j2.xml
 sys-config:
   rootLogLevel: warn
   configStrOne: strOne

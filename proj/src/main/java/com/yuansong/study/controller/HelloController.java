@@ -2,6 +2,8 @@ package com.yuansong.study.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,8 @@ import com.yuansong.tools.common.MathTool;
 
 @RestController
 public class HelloController {
+	
+	private final static Logger logger = LogManager.getLogger(HelloController.class);
 	
 	@Autowired
 	private SysConfig sysConfig;
@@ -34,10 +38,11 @@ public class HelloController {
 		MathTool mt = new MathTool();	
 		System.out.println(_userService.GetUserById(mt.RandInt(10, 100)));
 		_userService.DeleteUserById(mt.RandInt(10, 100));
-//		logger.debug("hello log test");
-//		logger.info("hello log test");
-//		logger.warn("hello log test");
-//		logger.info("中文测试");
+		logger.debug("hello log test");
+		logger.info("hello log test");
+		logger.warn("hello log test");
+		logger.error("hello log test");
+		logger.info("中文测试");
 		
 		System.out.println(sysConfig.getConfigStrOne());
 		System.out.println(sysConfig.getConfigStrTwo());

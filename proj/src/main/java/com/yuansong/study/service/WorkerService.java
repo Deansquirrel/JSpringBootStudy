@@ -74,15 +74,15 @@ public class WorkerService {
 	private JdbcTemplate getJdbcTemplate() throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		CommonTool ct = new CommonTool();
 		String cKey = ct.Md5Encode("|" + _connStr + "|" + "tester" + "|" + "84519741").toUpperCase();
-		if(Global.ConnPool().hasKey(cKey)) {
-			return Global.ConnPool().getObject(cKey);
+		if(Global.CONN_POOL.hasKey(cKey)) {
+			return Global.CONN_POOL.getObject(cKey);
 		}
 		
 		DataSource ds = getDataSource(_connStr,"tester","84519741");
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		jdbcTemplate.setQueryTimeout(30);
 		jdbcTemplate.setDataSource(ds);
-		Global.ConnPool().register(cKey, jdbcTemplate);
+		Global.CONN_POOL.register(cKey, jdbcTemplate);
 		return getJdbcTemplate();
 	}
 	

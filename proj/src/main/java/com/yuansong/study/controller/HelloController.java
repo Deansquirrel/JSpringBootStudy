@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yuansong.study.config.SysConfig;
+import com.yuansong.study.global.Global;
 import com.yuansong.study.service.UserService;
 import com.yuansong.study.service.WorkerService;
 import com.yuansong.tools.common.MathTool;
+import com.yuansong.tools.cron.State;
 
 
 @RestController
@@ -48,6 +50,16 @@ public class HelloController {
 		System.out.println(sysConfig.getConfigStrTwo());
 		System.out.println(sysConfig.getRootLogLevel());
 		return "Hello Sping Boot";
+	}
+	
+	@GetMapping("/task")
+	public String taskTest() {
+		String r = "";
+		for(String k:Global.JOB_MANAGER.keyList()) {
+			State s = Global.JOB_MANAGER.getState(k);
+			r = r + "|" + k + " " + String.valueOf(s.isRunning());
+		}
+		return r;
 	}
 	
 	@GetMapping("/path")

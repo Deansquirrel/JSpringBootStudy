@@ -1,0 +1,4 @@
+sys-config:
+  configStrOne:abc
+  configStrTwo:def
+  configIntOne:10

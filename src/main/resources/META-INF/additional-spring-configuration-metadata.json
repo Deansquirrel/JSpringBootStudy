@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "sys-config",
+      "type": "com.yuansong.study.config.SysConfig",
+      "description": "Description for sys-config."
+  }
+] }

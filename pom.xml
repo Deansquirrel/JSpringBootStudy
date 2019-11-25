@@ -44,6 +44,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>com.yuansong.tools</groupId>
             <artifactId>yuansong-jtools-common</artifactId>
             <version>0.0.4</version>

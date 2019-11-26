@@ -4,6 +4,13 @@ target/
 !**/src/main/**
 !**/src/test/**
 
+### Eclipse ###
+/.metadata/
+/target/
+/bin/
+/.settings/
+/logs/
+
 ### STS ###
 .apt_generated
 .classpath

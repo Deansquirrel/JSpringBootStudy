@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class RootController {
 
     @Autowired
-    SysConfig sc;
+    private SysConfig sc;
 
     @GetMapping("")
     public String root(){
         DateTool dt = new DateTool();
-        return "Root Test" + " " + dt.GetDatetimeWithMillionsecond() + " " + "TTT" + " " + sc.getConfigStrOne();
+        return "Root Test" + " " +
+                dt.GetDatetimeWithMillionsecond() +
+                " " +
+                "TTT" +
+                " " +
+                sc.getConfigStrOne();
     }
 
     @GetMapping("hello")

@@ -1,4 +1,4 @@
 sys-config:
-  configStrOne:abc
-  configStrTwo:def
-  configIntOne:10
+  configStrOne: abc
+  configStrTwo: def
+  configIntOne: 10

@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RootController {
 
-    @Autowired
     private SysConfig sc;
+
+    @Autowired
+    public void setSc(SysConfig sc) {
+        this.sc = sc;
+    }
 
     @GetMapping("")
     public String root(){

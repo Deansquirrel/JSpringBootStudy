@@ -6,12 +6,16 @@ target/
 
 /.mvn/
 
+### logs ###
+/tomcat/
+/logs/
+
+
 ### Eclipse ###
 /.metadata/
 /target/
 /bin/
 /.settings/
-/logs/
 
 ### STS ###
 .apt_generated

@@ -26,6 +26,17 @@
     </repositories>
 
     <dependencies>
+     
+       <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-security</artifactId>
+        	<exclusions>
+        		<exclusion>
+        			<groupId>org.springframework.boot</groupId>  
+	                <artifactId>spring-boot-starter-logging</artifactId>
+        		</exclusion>
+        	</exclusions>
+       </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -36,11 +47,12 @@
 	            </exclusion>  
 	        </exclusions>
         </dependency>
-        
         <dependency>  
 	        <groupId>org.springframework.boot</groupId>  
 	        <artifactId>spring-boot-starter-log4j2</artifactId>  
 	    </dependency>
+	    
+	    
 	    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
@@ -56,6 +68,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		</dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,6 +83,11 @@
             <groupId>com.yuansong.tools</groupId>
             <artifactId>yuansong-jtools-common</artifactId>
             <version>0.0.4</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.security</groupId>
+        	<artifactId>spring-security-test</artifactId>
+        	<scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -18,10 +18,11 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <!-- <url>https://raw.github.com/deansquirrel/maven-jrepository/master</url> -->
     <repositories>
         <repository>
             <id>deansquirrel-maven-repo-release</id>
-            <url>https://raw.github.com/deansquirrel/maven-jrepository/master</url>
+            <url>https://gitee.com/deansquirrel/maven-jrepository/raw/master</url>
         </repository>
     </repositories>
 
@@ -51,8 +52,6 @@
 	        <groupId>org.springframework.boot</groupId>  
 	        <artifactId>spring-boot-starter-log4j2</artifactId>  
 	    </dependency>
-	    
-	    
 	    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>

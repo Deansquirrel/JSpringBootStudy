@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yuansong.study.config.SysConfig;
 import com.yuansong.study.service.AopTestService;
+import com.yuansong.study.service.TestService;
 import com.yuansong.tools.common.DateTool;
 
 @RestController
@@ -21,9 +22,16 @@ public class RootController {
     
     @Autowired
     private AopTestService ats;
+    
+    @Autowired
+    private TestService ts;
 
     @GetMapping("")
     public String root(){
+    	logger.debug(ts.toString());
+    	ts.SubTest();
+    	logger.debug(ts.toString());
+    	
         DateTool dt = new DateTool();
         return "Root Test" + " " +
                 dt.GetDatetimeWithMillionsecond() +

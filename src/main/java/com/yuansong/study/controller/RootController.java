@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yuansong.study.config.SysConfig;
 import com.yuansong.study.service.AopTestService;
+import com.yuansong.study.service.AsyncService;
 import com.yuansong.study.service.TestService;
 import com.yuansong.tools.common.DateTool;
 
@@ -19,6 +20,9 @@ public class RootController {
 
 	@Autowired
     private SysConfig sc;
+	
+	@Autowired
+	private AsyncService as;
     
     @Autowired
     private AopTestService ats;
@@ -26,11 +30,14 @@ public class RootController {
     @Autowired
     private TestService ts;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String root(){
-    	logger.debug(ts.toString());
-    	ts.SubTest();
-    	logger.debug(ts.toString());
+    	this.ts.SubTest();
+    	
+    	for (int i = 0; i < 10; i++) {
+    		logger.debug(i);
+    		as.ExecuteAsync();    		
+    	}
     	
         DateTool dt = new DateTool();
         return "Root Test" + " " +
@@ -70,20 +77,5 @@ public class RootController {
     @GetMapping("mat")
     public String ModelAttributeTest(Model model) {
     	return (String) model.getAttribute("modelAttributeTest");
-    }
-    
-    @GetMapping("/admin/hello")
-    public String admin() {
-    	return "admin hello";
-    }
-    
-    @GetMapping("/user/hello")
-    public String user() {
-    	return "user hello";
-    }
-    
-    @GetMapping("/db/hello")
-    public String db() {
-    	return "db hello";
     }
 }
